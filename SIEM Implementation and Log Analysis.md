@@ -59,10 +59,9 @@ Accès au dashboard via `https://localhost` depuis le Mac.
 Installation et enregistrement de l'agent via PowerShell :
 
 ```powershell
-Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.7.0-1.msi `
-  -OutFile wazuh-agent.msi
-msiexec /i wazuh-agent.msi WAZUH_MANAGER='<IP_SERVEUR>' /q
-NET START WazuhSvc
+Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.14.5-1.msi -OutFile $env:tmp\wazuh-agent; msiexec.exe /i $env:tmp\wazuh-agent /q WAZUH_MANAGER='192.168.139.171'
+
+NET START Wazuh
 ```
 
 ---
