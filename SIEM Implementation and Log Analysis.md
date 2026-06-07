@@ -70,11 +70,11 @@ NET START WazuhSvc
 ### Wazuh Agent — Ubuntu VM (Parallels)
 
 ```bash
-curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo apt-key add -
-echo "deb https://packages.wazuh.com/4.x/apt/ stable main" | \
-  sudo tee /etc/apt/sources.list.d/wazuh.list
-sudo apt update && sudo apt install wazuh-agent
-sudo WAZUH_MANAGER='<IP_SERVEUR>' systemctl start wazuh-agent
+wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.14.5-1_arm64.deb && sudo WAZUH_MANAGER='192.168.139.171' dpkg -i ./wazuh-agent_4.14.5-1_arm64.deb
+
+sudo systemctl daemon-reload
+sudo systemctl enable wazuh-agent
+sudo systemctl start wazuh-agent
 ```
 
 ---
