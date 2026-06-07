@@ -1,36 +1,102 @@
-<div align="center">
+# 🛡️ SIEM Implementation and Log Analysis
 
-# 🛡️ SOC Home Lab — Wazuh SIEM
+## Objectif
 
-A hands-on home lab built to simulate a real SOC environment,  
-focused on threat detection and log analysis.
-
-</div>
+Déployer un SIEM fonctionnel capable de collecter, centraliser et analyser 
+les logs de plusieurs endpoints en temps réel.
 
 ---
 
 ## 🏗️ Architecture
 
-| Component | Role |
-|-----------|------|
-| MacBook M2 (OrbStack) | Wazuh Server hosted on Ubuntu ARM64 |
-| Windows 11 VM (Parallels) | Monitored endpoint — Wazuh Agent |
-| Ubuntu VM (Parallels) | Monitored endpoint — Wazuh Agent |
-| Kali Linux (Parallels) | Attack simulation |
+┌─────────────────────────────────────────────┐
+│              MacBook M2 (Host)              │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │         OrbStack (Ubuntu)           │   │
+│  │         Wazuh Server + Manager      │   │
+│  │         Dashboard : localhost       │   │
+│  └──────────────┬──────────────────────┘   │
+│                 │                           │
+│    ┌────────────┴────────────┐             │
+│    │                         │             │
+│  ┌─┴──────────┐   ┌──────────┴──────┐     │
+│  │ Windows 11 │   │   Ubuntu VM     │     │
+│  │ Parallels  │   │   Parallels     │     │
+│  │ Wazuh Agent│   │  Wazuh Agent    │     │
+│  └────────────┘   └─────────────────┘     │
+│                                             │
+│  ┌─────────────────────────┐               │
+│  │     Kali Linux          │               │
+│  │     Parallels           │               │
+│  │  Attack Simulation 🔴   │               │
+│  └─────────────────────────┘               │
+└─────────────────────────────────────────────┘
+
+> 🔄 Suricata sera intégré prochainement sur l'Ubuntu VM pour la détection réseau.
 
 ---
 
-## 🛠️ Stack
+## ⚙️ Installation
 
-![Wazuh](https://img.shields.io/badge/Wazuh-1D6FA5?style=for-the-badge&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows_11-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![Kali](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
+### Wazuh Server (OrbStack — Ubuntu ARM64)
+
+Installation via le script officiel Wazuh :
+
+```bash
+curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
+sudo bash ./wazuh-install.sh -a
+```
+
+Accès au dashboard via `https://localhost` depuis le Mac.
 
 ---
 
-## 🔍 Detections
+### Wazuh Agent — Windows 11 (Parallels)
 
-### SSH Brute Force Attack
-- Simulated a brute force attack from Kali Linux against the Ubuntu agent
-- W
+Installation et enregistrement de l'agent via PowerShell :
+
+```powershell
+Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.7.0-1.msi `
+  -OutFile wazuh-agent.msi
+msiexec /i wazuh-agent.msi WAZUH_MANAGER='<IP_SERVEUR>' /q
+NET START WazuhSvc
+```
+
+---
+
+### Wazuh Agent — Ubuntu VM (Parallels)
+
+```bash
+curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo apt-key add -
+echo "deb https://packages.wazuh.com/4.x/apt/ stable main" | \
+  sudo tee /etc/apt/sources.list.d/wazuh.list
+sudo apt update && sudo apt install wazuh-agent
+sudo WAZUH_MANAGER='<IP_SERVEUR>' systemctl start wazuh-agent
+```
+
+---
+
+## 🔍 Détections réalisées
+
+| Attaque | Source | Règle déclenchée | MITRE ATT&CK |
+|---------|--------|------------------|--------------|
+| SSH Brute Force | Kali Linux → Ubuntu VM | Multiple authentication failures | T1110 — Brute Force |
+
+---
+
+## 📸 Screenshots
+
+> À ajouter : dashboard Wazuh, alertes SSH brute force, agents connectés
+
+---
+
+## 🎯 Compétences démontrées
+
+- Déploiement d'un SIEM sur environnement ARM64
+- Connexion et supervision de endpoints hétérogènes (Windows + Linux)
+- Détection d'attaques réelles via règles Wazuh
+- Analyse de logs et corrélation d'événements
+```
+
+Les commandes sont approximatives — corrige-les si elles correspondent pas exactement à ce que t'as utilisé. Et remplace `<IP_SERVEUR>` par ce que t'as mis réellement.
