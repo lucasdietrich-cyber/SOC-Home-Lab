@@ -1,4 +1,3 @@
-```markdown
 # 🛡️ SIEM Implementation and Log Analysis
 
 ## Objectif
