@@ -81,7 +81,10 @@ sudo systemctl start wazuh-agent
 
 ## Screenshots
 
-> À ajouter : dashboard Wazuh, alertes SSH brute force, agents connectés
+<img width="1512" height="508" alt="Capture d’écran 2026-06-07 à 13 32 10" src="https://github.com/user-attachments/assets/e86fcf66-32ec-4635-82de-9c805a37b957" />
+<img width="1512" height="624" alt="Capture d’écran 2026-06-07 à 13 32 03" src="https://github.com/user-attachments/assets/f1a81d13-2386-4070-9f5e-47cd77024580" />
+<img width="1505" height="748" alt="Capture d’écran 2026-06-07 à 13 31 53" src="https://github.com/user-attachments/assets/8f739c32-b3a8-4eaa-9258-f1e79645ada6" />
+
 
 ---
 
