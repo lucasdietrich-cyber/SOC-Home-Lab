@@ -79,13 +79,6 @@ sudo WAZUH_MANAGER='<IP_SERVEUR>' systemctl start wazuh-agent
 
 ---
 
-## 🔍 Détections réalisées
-
-| Attaque | Source | Règle déclenchée | MITRE ATT&CK |
-|---------|--------|------------------|--------------|
-| SSH Brute Force | Kali Linux → Ubuntu VM | Multiple authentication failures | T1110 — Brute Force |
-
----
 
 ## 📸 Screenshots
 
