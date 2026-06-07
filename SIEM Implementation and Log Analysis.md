@@ -1,3 +1,4 @@
+```markdown
 # 🛡️ SIEM Implementation and Log Analysis
 
 ## Objectif
@@ -9,6 +10,7 @@ les logs de plusieurs endpoints en temps réel.
 
 ## 🏗️ Architecture
 
+```
 ┌─────────────────────────────────────────────┐
 │              MacBook M2 (Host)              │
 │                                             │
@@ -32,6 +34,7 @@ les logs de plusieurs endpoints en temps réel.
 │  │  Attack Simulation 🔴   │               │
 │  └─────────────────────────┘               │
 └─────────────────────────────────────────────┘
+```
 
 > 🔄 Suricata sera intégré prochainement sur l'Ubuntu VM pour la détection réseau.
 
@@ -97,6 +100,3 @@ sudo WAZUH_MANAGER='<IP_SERVEUR>' systemctl start wazuh-agent
 - Connexion et supervision de endpoints hétérogènes (Windows + Linux)
 - Détection d'attaques réelles via règles Wazuh
 - Analyse de logs et corrélation d'événements
-```
-
-Les commandes sont approximatives — corrige-les si elles correspondent pas exactement à ce que t'as utilisé. Et remplace `<IP_SERVEUR>` par ce que t'as mis réellement.
