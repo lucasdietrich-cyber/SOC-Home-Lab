@@ -1,6 +1,7 @@
 <div align="center">
 <h1> SIEM Implementation and Log Analysis </h1>
 </div>
+
 ## Objective
 
 Deploy a functional SIEM capable of collecting, centralizing and analyzing 
