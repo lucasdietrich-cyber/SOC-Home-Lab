@@ -2,7 +2,7 @@
 <h1> SIEM Implementation and Log Analysis </h1>
 </div>
 
-## Objective
+### Objective
 
 Deploy a functional SIEM capable of collecting, centralizing and analyzing 
 logs from multiple endpoints in real time.
