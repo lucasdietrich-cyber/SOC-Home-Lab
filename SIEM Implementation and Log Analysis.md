@@ -1,13 +1,13 @@
-# 🛡️ SIEM Implementation and Log Analysis
+# SIEM Implementation and Log Analysis
 
-## Objectif
+## Objective
 
-Déployer un SIEM fonctionnel capable de collecter, centraliser et analyser 
-les logs de plusieurs endpoints en temps réel.
+Deploy a functional SIEM capable of collecting, centralizing and analyzing 
+logs from multiple endpoints in real time.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -35,7 +35,7 @@ les logs de plusieurs endpoints en temps réel.
 └─────────────────────────────────────────────┘
 ```
 
-> 🔄 Suricata sera intégré prochainement sur l'Ubuntu VM pour la détection réseau.
+> Suricata will be integrated soon on the Ubuntu VM for network detection.
 
 ---
 
@@ -43,20 +43,18 @@ les logs de plusieurs endpoints en temps réel.
 
 ### Wazuh Server (OrbStack — Ubuntu ARM64)
 
-Installation via le script officiel Wazuh :
+Installation via the official Wazuh script :
 
 ```bash
 curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
 sudo bash ./wazuh-install.sh -a
 ```
 
-Accès au dashboard via `https://localhost` depuis le Mac.
+Dashboard accessible at `https://localhost` from the Mac.
 
 ---
 
 ### Wazuh Agent — Windows 11 (Parallels)
-
-Installation et enregistrement de l'agent via PowerShell :
 
 ```powershell
 Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.14.5-1.msi -OutFile $env:tmp\wazuh-agent; msiexec.exe /i $env:tmp\wazuh-agent /q WAZUH_MANAGER='192.168.139.171'
@@ -85,9 +83,9 @@ sudo systemctl start wazuh-agent
 
 ---
 
-## 🎯 Compétences démontrées
+## 🎯 Skills Demonstrated
 
-- Déploiement d'un SIEM sur environnement ARM64
-- Connexion et supervision de endpoints hétérogènes (Windows + Linux)
-- Détection d'attaques réelles via règles Wazuh
-- Analyse de logs et corrélation d'événements
+- SIEM deployment on ARM64 environment
+- Connection and monitoring of heterogeneous endpoints (Windows + Linux)
+- Real attack detection via Wazuh rules
+- Log analysis and event correlation
