@@ -1,5 +1,6 @@
+<div align="center">
 # SIEM Implementation and Log Analysis
-
+</div>
 ## Objective
 
 Deploy a functional SIEM capable of collecting, centralizing and analyzing 
@@ -39,7 +40,7 @@ logs from multiple endpoints in real time.
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ### Wazuh Server (OrbStack — Ubuntu ARM64)
 
@@ -77,13 +78,13 @@ sudo systemctl start wazuh-agent
 ---
 
 
-## 📸 Screenshots
+## Screenshots
 
 > À ajouter : dashboard Wazuh, alertes SSH brute force, agents connectés
 
 ---
 
-## 🎯 Skills Demonstrated
+## Skills Demonstrated
 
 - SIEM deployment on ARM64 environment
 - Connection and monitoring of heterogeneous endpoints (Windows + Linux)
