@@ -1,5 +1,5 @@
 <div align="center">
-<h1> SIEM Implementation and Log Analysis </h1>
+<h1> SIEM Implementation </h1>
 </div>
 
 ### Objective
@@ -93,4 +93,3 @@ sudo systemctl start wazuh-agent
 - SIEM deployment on ARM64 environment
 - Connection and monitoring of heterogeneous endpoints (Windows + Linux)
 - Real attack detection via Wazuh rules
-- Log analysis and event correlation
